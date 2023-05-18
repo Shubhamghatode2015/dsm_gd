@@ -1,0 +1,12 @@
+.text_background {
+  color: "red";
+  background-color: -webkit-linear-gradient(
+    45deg,
+    #fe6b8b 30%,
+    #ff8e53 90%
+  ) !important;
+  font-size: 40px;
+  /* background: -webkit-linear-gradient(#0F3, #F00); */
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
