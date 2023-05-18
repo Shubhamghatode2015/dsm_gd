@@ -120,7 +120,7 @@ const FeedPost = ({ handleEdit, handleDelete, value, handleTagClick }) => {
             sx={{ color: "primary.main", cursor: "pointer", textAlign: "left" }}
             onClick={() => handleTagClick && handleTagClick(value?.tag)}
           >
-            #{value?.tag}
+            {value?.tag}
           </Typography>
         </CardContent>
         {session?.user.id === value?.creator._id && pathName === "/profile" && (
