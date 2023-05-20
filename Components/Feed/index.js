@@ -14,7 +14,7 @@ const PromptCardList = ({ data, handleTagClick }) => {
         display: "flex",
         justifyContent: "flex-start",
         alignItems: "flex-start",
-        gap: 3,
+        gap: 5,
         flexWrap: "wrap",
         my: 5,
       }}
@@ -54,9 +54,9 @@ const Feed = () => {
     const regex = new RegExp(searchtext, "i"); // 'i' flag for case-insensitive search
     return allPosts.filter(
       (item) =>
-        regex.test(item.creator.username) ||
-        regex.test(item.tag) ||
-        regex.test(item.prompt)
+        regex.test(item?.creator?.username) ||
+        regex.test(item?.tag) ||
+        regex.test(item?.prompt)
     );
   };
 
