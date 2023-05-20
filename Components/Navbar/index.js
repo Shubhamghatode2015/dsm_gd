@@ -64,32 +64,24 @@ const Navbaar = () => {
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
     >
-      <MenuItem>
-        <IconButton
-          size="large"
-          aria-label="show 4 new mails"
-          color="inherit"
-          component={Link}
-          href={"/create-post"}
-        >
+      <MenuItem component={Link} href={"/create-post"}>
+        <IconButton size="large" aria-label="show 4 new mails" color="inherit">
           <MailIcon />
         </IconButton>
         <p>Create post</p>
       </MenuItem>
-      <MenuItem>
+      <MenuItem component={Link} href={"/profile"}>
         <IconButton
           size="large"
           aria-label="show 17 new notifications"
           color="inherit"
-          component={Link}
-          href={"/profile"}
         >
           <NotificationsIcon />
         </IconButton>
         <p>Profile</p>
       </MenuItem>
-      <MenuItem>
-        <IconButton size="large" color="inherit" onClick={signOut}>
+      <MenuItem onClick={signOut}>
+        <IconButton size="large" color="inherit">
           <AccountCircle />
         </IconButton>
         <p>Logout</p>
