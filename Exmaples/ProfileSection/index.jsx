@@ -10,7 +10,7 @@ const ProfileSection = ({ name, desc, data, handleEdit, handleDelete }) => {
     <>
       <Container
         maxWidth="lg"
-        sx={{ width: "100%", minHeight: "50vh", textAlign: "left" }}
+        sx={{ width: "100%", minHeight: "100vh", textAlign: "left" }}
       >
         <Box
           style={{

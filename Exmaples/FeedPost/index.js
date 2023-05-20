@@ -26,16 +26,14 @@ const FeedPost = ({ handleEdit, handleDelete, value, handleTagClick }) => {
   const handleProfileClick = () => {
     // console.log(value);
 
-    if (value?.creator._id === session?.user.id) return router.push("/profile");
+    if (value?.creator?._id === session.user.id) return router.push("/profile");
 
-    router.push(
-      `/profile/${value?.creator._id}?name=${value?.creator.username}`
-    );
+    router.push(`/profile/${value?.creator?._id}?name=${value?.creator?.username}`);
   };
 
   const handleCopy = () => {
     setCopied(value?.prompt);
-    navigator.clipboard.writeText(value.prompt);
+    navigator.clipboard.writeText(value?.prompt);
     setTimeout(() => setCopied(false), 3000);
   };
 
@@ -62,7 +60,7 @@ const FeedPost = ({ handleEdit, handleDelete, value, handleTagClick }) => {
             avatar={
               <Avatar sx={{ bgcolor: "primary.main" }} aria-label="recipe">
                 <Image
-                  src={value?.creator.image}
+                  src={value?.creator?.image}
                   alt="user_image"
                   width={40}
                   height={40}
@@ -75,7 +73,7 @@ const FeedPost = ({ handleEdit, handleDelete, value, handleTagClick }) => {
                 variant="body2"
                 sx={{ color: "info.main", fontSize: "0.8rem", ml: 0 }}
               >
-                {value?.creator.username}
+                {value?.creator?.username}
               </Typography>
             }
             subheader={
@@ -83,7 +81,7 @@ const FeedPost = ({ handleEdit, handleDelete, value, handleTagClick }) => {
                 variant="body1"
                 sx={{ color: "info.light", fontSize: "0.7rem", ml: 0 }}
               >
-                {value?.creator.email}
+                {value?.creator?.email}
               </Typography>
             }
           />
@@ -123,7 +121,7 @@ const FeedPost = ({ handleEdit, handleDelete, value, handleTagClick }) => {
             {value?.tag}
           </Typography>
         </CardContent>
-        {session?.user.id === value?.creator._id && pathName === "/profile" && (
+        {session?.user.id === value?.creator?._id && pathName === "/profile" && (
           <CardActions
             sx={{ width: "100%", display: "flex", alignItems: "center" }}
           >

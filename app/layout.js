@@ -10,25 +10,33 @@ import { customTheme } from "@utils/customTheme";
 // import Nav from "@components/Nav";
 // import Provider from "@components/Provider";
 
-export const metadata = {
-  title: "DSM-GD",
-  description: "Discuss about Your concepts",
-};
 
+{
+  /* <title>DSM-GD</title>
+<meta name="description" content="Discuss about our prompts" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="icon" href="/Frame 247.png" /> */
+}
 const RootLayout = ({ children }) => (
   <html lang="en">
+    <head>
+    <title>DSM-GD</title>
+      <meta name="description" content="Discuss about our prompts" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <link rel="icon" href="/Frame 247.png" />
+    </head>
     <body>
       <Provider>
-      <div className="main">
-        <div className="gradient" />
-      </div>
-      <ThemeProvider theme={customTheme}>
-        <CssBaseline />
+        <div className="main">
+          <div className="gradient" />
+        </div>
+        <ThemeProvider theme={customTheme}>
+          <CssBaseline />
 
-        <Navbaar />
-        {children}
-        <Footer />
-      </ThemeProvider>
+          <Navbaar />
+          {children}
+          <Footer />
+        </ThemeProvider>
       </Provider>
     </body>
   </html>
