@@ -64,13 +64,21 @@ const Navbaar = () => {
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
     >
-      <MenuItem component={Link} href={"/create-post"}>
+      <MenuItem
+        component={Link}
+        href={"/create-post"}
+        onClick={handleMobileMenuClose}
+      >
         <IconButton size="large" aria-label="show 4 new mails" color="inherit">
           <MailIcon />
         </IconButton>
         <p>Create post</p>
       </MenuItem>
-      <MenuItem component={Link} href={"/profile"}>
+      <MenuItem
+        component={Link}
+        href={"/profile"}
+        onClick={handleMobileMenuClose}
+      >
         <IconButton
           size="large"
           aria-label="show 17 new notifications"
@@ -80,7 +88,12 @@ const Navbaar = () => {
         </IconButton>
         <p>Profile</p>
       </MenuItem>
-      <MenuItem onClick={signOut}>
+      <MenuItem
+        onClick={() => {
+          signOut();
+          handleMobileMenuClose();
+        }}
+      >
         <IconButton size="large" color="inherit">
           <AccountCircle />
         </IconButton>
