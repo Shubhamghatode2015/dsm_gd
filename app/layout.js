@@ -31,7 +31,7 @@ const RootLayout = ({ children }) => (
           <div className="gradient" />
         </div>
         <ThemeProvider theme={customTheme}>
-          <CssBaseline />
+          {/* <CssBaseline /> */}
 
           <Navbaar />
           {children}
