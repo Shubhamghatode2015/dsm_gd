@@ -10,7 +10,10 @@ import { customTheme } from "@utils/customTheme";
 // import Nav from "@components/Nav";
 // import Provider from "@components/Provider";
 
-
+// export const metadata = {
+//   title: "DSM-GD",
+//   description: "Discuss about Your concepts",
+// };
 {
   /* <title>DSM-GD</title>
 <meta name="description" content="Discuss about our prompts" />
@@ -31,7 +34,7 @@ const RootLayout = ({ children }) => (
           <div className="gradient" />
         </div>
         <ThemeProvider theme={customTheme}>
-          {/* <CssBaseline /> */}
+          <CssBaseline />
 
           <Navbaar />
           {children}

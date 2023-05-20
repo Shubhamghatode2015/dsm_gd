@@ -42,7 +42,7 @@ const FeedPost = ({ handleEdit, handleDelete, value, handleTagClick }) => {
       <Card
         sx={{
           minHeight: "5rem",
-          width: 300,
+          width: {xs: '100%', sm: '45%', md: 300, xl: 300},
         }}
         elevation={5}
       >
