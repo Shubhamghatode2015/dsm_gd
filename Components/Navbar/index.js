@@ -65,7 +65,13 @@ const Navbaar = () => {
       onClose={handleMobileMenuClose}
     >
       <MenuItem>
-        <IconButton size="large" aria-label="show 4 new mails" color="inherit">
+        <IconButton
+          size="large"
+          aria-label="show 4 new mails"
+          color="inherit"
+          component={Link}
+          href={"/create-post"}
+        >
           <MailIcon />
         </IconButton>
         <p>Create post</p>
@@ -75,13 +81,15 @@ const Navbaar = () => {
           size="large"
           aria-label="show 17 new notifications"
           color="inherit"
+          component={Link}
+          href={"/profile"}
         >
           <NotificationsIcon />
         </IconButton>
         <p>Profile</p>
       </MenuItem>
       <MenuItem>
-        <IconButton size="large" color="inherit">
+        <IconButton size="large" color="inherit" onClick={signOut}>
           <AccountCircle />
         </IconButton>
         <p>Logout</p>
@@ -178,8 +186,8 @@ const Navbaar = () => {
                         src={session?.user.image}
                         alt="..."
                         // style={{ width: "100%", height: "100%" }}
-                      width={35}
-                      height={35}
+                        width={35}
+                        height={35}
                       />
                     </Avatar>
                   </Link>
@@ -206,19 +214,63 @@ const Navbaar = () => {
                 </>
               )}
             </Box>
-            <Box sx={{ display: { xs: "flex", md: "none" } }}>
-              <IconButton
-                size="large"
-                aria-label="show more"
-                aria-controls={mobileMenuId}
-                aria-haspopup="true"
-                onClick={handleMobileMenuOpen}
-                color="inherit"
-              >
-                <Badge variant="dot" color="success">
-                  <AccountCircle />{" "}
-                </Badge>
-              </IconButton>
+            <Box
+              sx={{
+                display: { xs: "flex", sm: "flex", md: "none", xl: "none" },
+              }}
+            >
+              {session?.user ? (
+                <IconButton
+                  size="large"
+                  aria-label="show more"
+                  aria-controls={mobileMenuId}
+                  aria-haspopup="true"
+                  onClick={handleMobileMenuOpen}
+                  color="inherit"
+                >
+                  <Badge variant="dot" color="success">
+                    <Avatar
+                      sx={{
+                        height: 35,
+                        width: 35,
+                        border: 0.3,
+                        borderColor: "primary.main",
+                        cursor: "pointer",
+                        boxShadow: 3,
+                      }}
+                    >
+                      <Image
+                        // src={require("../assets/img/60.jpg")}
+                        src={session?.user.image}
+                        alt="..."
+                        // style={{ width: "100%", height: "100%" }}
+                        width={35}
+                        height={35}
+                      />
+                    </Avatar>
+                  </Badge>
+                </IconButton>
+              ) : (
+                <>
+                  {providers &&
+                    Object.values(providers).map((provider) => (
+                      <Avatar
+                        key={provider.name}
+                        sx={{
+                          height: 35,
+                          width: 35,
+                          border: 0.3,
+                          borderColor: "primary.main",
+                          cursor: "pointer",
+                          boxShadow: 3,
+                        }}
+                        onClick={() => {
+                          signIn(provider.id);
+                        }}
+                      />
+                    ))}
+                </>
+              )}
             </Box>
           </Toolbar>
         </Container>
